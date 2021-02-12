@@ -16,7 +16,7 @@ const Dotenv = require('dotenv-webpack')
     plugins: [
       new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
-        title: '[HTML Title]',
+        title: 'Currency Exchanger',
         template: './src/index.html',
         inject: 'body'
       }),

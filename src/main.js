@@ -4,21 +4,23 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import CurrencyExchange from './currency-exchange.js';
 
-let usDollar = parseInt($('#usDollar').val());
+
 function getExchange(response) {
-  if (response.conversion_rates.EUR) {
-    $('.showConversion').text(`${usDollar} is worth ${response.conversion_rates.EUR}`);
+  let usDollar = parseInt($('#usDollar').val());
+  if (response.target_code.EUR) {
+    $('.showConversion').text(`${usDollar} is worth ${response.conversion_rates}`);
 
-  } else if (response.conversion_rates.THB) {
-    $('.showConversion').text(`${usDollar} is worth ${response.conversion_rates.THB}`);
+  } else if (response.target_code.THB) {
+    $('.showConversion').text(`${usDollar} is worth ${response.conversion_rates}`);
 
-  } else (response.conversion_rates.KRW) {
-  $('.showConversion').text(`${usDollar} is worth ${response.conversion_rates.KRW}`);
+  } else (response.target_code.KRW) {
+  $('.showConversion').text(`${usDollar} is worth ${response.conversion_rates}`);
   }
 };
 
 $(document).ready(function() {
   $('#getConversion').click(function() {
+    let country = document.getElementsByName("country");
     CurrencyExchange.getExchange(country)
       .then(function(response) {
         getExchange(response);
