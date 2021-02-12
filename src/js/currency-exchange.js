@@ -1,14 +1,14 @@
 export default class CurrencyExchange {
-  static getExchange() {
-    return fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/EUR`)
+  static getExchange(country) {
+    return fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/${country}`)
       .then(function(response) {
         if(!response.ok) {
-          throw Error(response.result);
+          throw Error(response.statusText);
         }
         return response.json();
       })
       .catch(function(error) {
-        return error;
+        return error.message;
       });
   }
 }

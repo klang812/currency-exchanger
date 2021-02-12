@@ -10,13 +10,14 @@ function getConversion(response) {
   if (response.target_code) {
     $('.showConversion').text(`${usDollar} is worth ${response.conversion_rate}`);
   } else  {
-    $('.showError').text(`There was an error: ${response.result}`);
+    $('.showError').text(`There was an error: ${response["error-type"]}`);
   }
 }
 
 $(document).ready(function() {
   $('#getConversion').click(function() {
-    let country = document.getElementsByName();
+    let country = document.getElementsByName("country");
+    console.log(country);
     CurrencyExchange.getExchange(country)
       .then(function(response) {
         getConversion(response);
