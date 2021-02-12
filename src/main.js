@@ -2,7 +2,7 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
-import CurrencyExchange from './currency-exchange.js';
+import CurrencyExchange from './js/currency-exchange.js';
 
 
 function getConversion(response) {
@@ -12,12 +12,12 @@ function getConversion(response) {
 
   } else if (response.target_code.THB) {
     $('.showConversion').text(`${usDollar} is worth ${response.conversion_rates}`);
-
-  } else (response.target_code.KRW) {
-  $('.showConversion').text(`${usDollar} is worth ${response.conversion_rates}`);
+  
+  } else  {
+    $('.showConversion').text(`${usDollar} is worth ${response.conversion_rates}`);
   }
 }
-
+//(response.target_code.KRW)
 
 $(document).ready(function() {
   $('#getConversion').click(function() {
