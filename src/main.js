@@ -5,7 +5,7 @@ import './css/styles.css';
 import CurrencyExchange from './currency-exchange.js';
 
 
-function getExchange(response) {
+function getConversion(response) {
   let usDollar = parseInt($('#usDollar').val());
   if (response.target_code.EUR) {
     $('.showConversion').text(`${usDollar} is worth ${response.conversion_rates}`);
@@ -16,14 +16,15 @@ function getExchange(response) {
   } else (response.target_code.KRW) {
   $('.showConversion').text(`${usDollar} is worth ${response.conversion_rates}`);
   }
-};
+}
+
 
 $(document).ready(function() {
   $('#getConversion').click(function() {
     let country = document.getElementsByName("country");
     CurrencyExchange.getExchange(country)
       .then(function(response) {
-        getExchange(response);
+        getConversion(response);
       });
   });
 });
