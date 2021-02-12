@@ -8,8 +8,11 @@
 </head>
 <body>
   <div class="container">
-    <h1>Let's Convert Your Money!!</h1>
-    <input type="radio" id="euro" name="country" value="euro">
+    <div class="jumbotron">
+      <h1>Let's Convert Your Money!!</h1>
+    </div>
+    <p>Please select the country you would like to convert your money to:</p>
+    <input type="radio" id="euro" name="country" value="euro" required>
     <label for="euro">European Union (EUR)</label>
     <input type="radio" id="baht" name="country" value="baht">
     <label for="baht">Thailand (THB)</label>
@@ -19,7 +22,10 @@
     <label for="kenyanShilling">Kenya (KES)</label>
     <input type="radio" id="yen" name="country" value="yen">
     <label for="yen">Japan (JPY)</label>
-
+    <form for="usDollar">Please enter the amount of US Dollars you would like to exchange:</form>
+    <input type="text" id="usDollar" name="usDollar"><br>
+    <button type="button" class="btn btn-primary" id="getConversion">Convert</button>
+    <div class="showConversion"></div>
   </div>
   
 </body>
