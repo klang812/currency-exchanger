@@ -7,21 +7,16 @@ import CurrencyExchange from './js/currency-exchange.js';
 
 function getConversion(response) {
   let usDollar = parseInt($('#usDollar').val());
-  if (response.target_code.EUR) {
-    $('.showConversion').text(`${usDollar} is worth ${response.conversion_rates}`);
-
-  } else if (response.target_code.THB) {
-    $('.showConversion').text(`${usDollar} is worth ${response.conversion_rates}`);
-  
+  if (response.target_code) {
+    $('.showConversion').text(`${usDollar} is worth ${response.conversion_rate}`);
   } else  {
-    $('.showConversion').text(`${usDollar} is worth ${response.conversion_rates}`);
+    $('.showError').text(`There was an error: ${response.result}`);
   }
 }
-//(response.target_code.KRW)
 
 $(document).ready(function() {
   $('#getConversion').click(function() {
-    let country = document.getElementsByName("country");
+    let country = document.getElementsByName();
     CurrencyExchange.getExchange(country)
       .then(function(response) {
         getConversion(response);
