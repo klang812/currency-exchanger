@@ -9,9 +9,9 @@ function getConversion(response) {
   let usDollar = parseInt($('#usDollar').val());
   if (response.target_code) {
     console.log(response);
-    $('.showConversion').text(`${usDollar} is worth ${response.conversion_rate}`);
+    $('.showConversion').text(`${usDollar} is worth ${(response.conversion_rate).toFixed(2) * usDollar}`);
   } else  {
-    $('.showError').text(`There was an error: ${response.error}`);
+    $('.showError').text(`There was an error: ${response.result}`);
   }
 }
 

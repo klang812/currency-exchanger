@@ -8,7 +8,7 @@ export default class CurrencyExchange {
         return response.json();
       })
       .catch(function(error) {
-        return error.message;
+        return error.result;
       });
   }
 }
