@@ -2,7 +2,7 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
-import CurrencyExchange from './js/currency-exchange.js';
+import CurrencyExchange from './services/currency-exchange.js';
 
 
 function getConversion(response) {
